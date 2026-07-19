@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
-
-  <meta name="theme-color" content="#160b16">
+  <meta name="theme-color" content="#fff7ec">
   <meta
     name="description"
-    content="A little birthday surprise made with love."
+    content="Sebuah kejutan ulang tahun kecil yang dibuat dengan hati."
   >
 
-  <title>A Birthday Surprise</title>
+  <title>A Little Birthday Letter</title>
 
   <link rel="stylesheet" href="file/default.css">
 
@@ -31,318 +29,368 @@
 </head>
 
 <body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div id="floatingHearts" class="floating-hearts" aria-hidden="true"></div>
+
   <main id="main">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">♥</span>
+        <span id="brandText">for someone special</span>
+      </div>
 
-    <div id="intro" class="intro">
-      <section class="intro-card">
-        <span class="intro-kicker">
-          A little surprise
-        </span>
+      <button
+        id="musicToggle"
+        class="icon-button"
+        type="button"
+        aria-label="Nyalakan musik"
+        hidden
+      >
+        <span class="music-note" aria-hidden="true">♫</span>
+        <span id="musicText">Musik</span>
+      </button>
+    </header>
 
-        <div class="intro-heart" aria-hidden="true">
-          ♥
+    <section id="experience" class="experience">
+      <div class="stage">
+        <div id="canvasWrap" class="canvas-wrap">
+          <canvas
+            id="canvas"
+            width="1100"
+            height="680"
+            aria-label="Animasi pohon berbentuk hati"
+          ></canvas>
+        </div>
+      </div>
+
+      <article id="messageCard" class="message-card">
+        <div class="message-eyebrow">
+          <span></span>
+          <span id="messageLabel">a little note for you</span>
         </div>
 
-        <h1>
-          Something special is waiting for you
-        </h1>
-
-        <p>
-          Turn up your volume, then tap the button below.
-        </p>
+        <div id="code" class="message-copy"></div>
 
         <button
-          id="startButton"
-          class="start-button"
+          id="secretButton"
+          class="secret-button"
           type="button"
+          hidden
         >
-          Open the surprise
-          <span aria-hidden="true">♥</span>
+          <span>Buka satu rahasia kecil</span>
+          <span aria-hidden="true">→</span>
         </button>
-      </section>
-    </div>
-
-    <button
-      id="musicToggle"
-      class="music-toggle"
-      type="button"
-      aria-label="Pause music"
-      hidden
-    >
-      <span class="music-icon" aria-hidden="true">♫</span>
-      <span class="music-label">Music on</span>
-    </button>
-
-    <div id="error">
-      Your browser does not support the canvas animation.
-    </div>
-
-    <audio id="myAudio" preload="auto" loop>
-      <source src="aud.mp3" type="audio/mpeg">
-    </audio>
-
-    <section id="scene" aria-label="Birthday tree animation">
-      <div id="wrap">
-        <canvas
-          id="canvas"
-          width="1100"
-          height="680"
-        ></canvas>
-      </div>
+      </article>
     </section>
 
-    <section id="text" aria-live="polite">
-      <div id="code">
-        <span class="say">Hey you,</span><br>
+    <div id="error" class="error-message" hidden>
+      Browser ini belum mendukung animasi canvas.
+    </div>
 
-        <span class="say">
-          Happy Birthday! 🎂
-        </span><br>
-
-        <span class="say">
-          May God bless you
-        </span><br>
-
-        <span class="say">
-          and fill your days with happiness.
-        </span><br>
-
-        <span class="say">
-          Just saying...
-        </span><br>
-
-        <span class="say">
-          you are genuinely wonderful. ❤️
-        </span><br>
-
-        <span class="say">
-          Sending good vibes, warm wishes,
-        </span><br>
-
-        <span class="say">
-          and a little bit of magic.
-        </span><br>
-
-        <span class="say">
-          Have the happiest birthday today. ✨
-        </span><br>
-      </div>
-    </section>
-
+    <audio id="myAudio" preload="auto"></audio>
   </main>
+
+  <section id="intro" class="intro" aria-labelledby="introTitle">
+    <div class="intro-decoration intro-decoration-one" aria-hidden="true"></div>
+    <div class="intro-decoration intro-decoration-two" aria-hidden="true"></div>
+
+    <article class="letter-card">
+      <div class="letter-topline">
+        <span id="introKicker">a little birthday letter</span>
+        <span class="tiny-heart" aria-hidden="true">♥</span>
+      </div>
+
+      <div class="envelope" aria-hidden="true">
+        <div class="envelope-back"></div>
+        <div class="envelope-paper">
+          <span>for you</span>
+          <span>♥</span>
+        </div>
+        <div class="envelope-front"></div>
+        <div class="envelope-seal">♥</div>
+      </div>
+
+      <p id="introOverline" class="intro-overline">Untuk seseorang yang istimewa</p>
+
+      <h1 id="introTitle">Ada surat kecil yang memilihmu hari ini.</h1>
+
+      <p id="introText" class="intro-copy">
+        Buka pelan-pelan. Ada sesuatu yang dibuat khusus untuk membuatmu tersenyum.
+      </p>
+
+      <button id="startButton" class="start-button" type="button">
+        <span id="startButtonText">Buka kejutannya</span>
+        <span class="button-heart" aria-hidden="true">♥</span>
+      </button>
+
+      <p class="sound-note">
+        <span aria-hidden="true">♫</span>
+        pengalaman terbaik dengan suara
+      </p>
+    </article>
+  </section>
+
+  <section
+    id="secretModal"
+    class="secret-modal"
+    aria-hidden="true"
+    aria-labelledby="secretTitle"
+  >
+    <button
+      id="secretBackdrop"
+      class="secret-backdrop"
+      type="button"
+      aria-label="Tutup surat"
+    ></button>
+
+    <article class="secret-letter" role="dialog" aria-modal="true">
+      <button
+        id="closeSecret"
+        class="close-secret"
+        type="button"
+        aria-label="Tutup"
+      >
+        ×
+      </button>
+
+      <span class="secret-stamp" aria-hidden="true">♥</span>
+
+      <p id="secretKicker" class="secret-kicker">one more thing</p>
+
+      <h2 id="secretTitle">Dunia terasa sedikit lebih hangat karena ada kamu.</h2>
+
+      <p id="secretText">
+        Semoga di tahun yang baru ini kamu lebih sering bertemu alasan untuk
+        tersenyum, lebih berani memilih hal yang membuatmu bahagia, dan selalu
+        ingat bahwa kehadiranmu berarti.
+      </p>
+
+      <div class="signature">
+        <span class="signature-line"></span>
+        <span id="signatureText">dibuat dengan hati</span>
+      </div>
+
+      <button id="replayButton" class="replay-button" type="button">
+        Putar sekali lagi
+      </button>
+    </article>
+  </section>
 
   <script>
     (function () {
+      var config = window.BIRTHDAY_CONFIG || {};
       var canvas = $("#canvas");
-
+      var audio = document.getElementById("myAudio");
       var intro = document.getElementById("intro");
       var startButton = document.getElementById("startButton");
+      var musicToggle = document.getElementById("musicToggle");
+      var musicText = document.getElementById("musicText");
+      var messageCard = document.getElementById("messageCard");
+      var secretButton = document.getElementById("secretButton");
+      var secretModal = document.getElementById("secretModal");
+      var closeSecret = document.getElementById("closeSecret");
+      var secretBackdrop = document.getElementById("secretBackdrop");
+      var replayButton = document.getElementById("replayButton");
+      var floatingHearts = document.getElementById("floatingHearts");
 
-      var musicToggle =
-        document.getElementById("musicToggle");
+      var started = false;
+      var hold = 1;
 
-      var musicLabel =
-        musicToggle.querySelector(".music-label");
-
-      var audio = document.getElementById("myAudio");
-
-      var birthdayConfig = Object.assign(
-        {
-          pageTitle: "A Birthday Surprise",
-          description: "",
-          recipientName: "You",
-          kicker: "A little surprise",
-          introTitle:
-            "Something special is waiting for {name}",
-          introText:
-            "Turn up your volume, then tap the button below.",
-          startButton:
-            "Open the surprise",
-          musicOn:
-            "Music on",
-          musicOff:
-            "Music off",
-          audio: "aud.mp3",
-          volume: 0.75,
-          loop: true,
-          theme: {},
-          lines: []
-        },
-        window.BIRTHDAY_CONFIG || {}
-      );
-
-      function personalizeBirthdayText(value) {
+      function replaceName(value) {
         return String(value || "").replace(
           /\{name\}/g,
-          birthdayConfig.recipientName
+          config.recipientName || "Kamu"
         );
       }
 
-      function applyBirthdayConfig() {
-        var description =
-          document.querySelector(
-            'meta[name="description"]'
-          );
+      function setText(id, value) {
+        var element = document.getElementById(id);
 
-        var kicker =
-          document.querySelector(
-            ".intro-kicker"
-          );
-
-        var introTitle =
-          document.querySelector(
-            ".intro h1"
-          );
-
-        var introText =
-          document.querySelector(
-            ".intro p"
-          );
-
-        var code =
-          document.getElementById("code");
-
-        var theme =
-          birthdayConfig.theme || {};
-
-        document.title =
-          birthdayConfig.pageTitle;
-
-        if (
-          description &&
-          birthdayConfig.description
-        ) {
-          description.setAttribute(
-            "content",
-            birthdayConfig.description
-          );
+        if (element && value) {
+          element.textContent = replaceName(value);
         }
-
-        if (kicker) {
-          kicker.textContent =
-            personalizeBirthdayText(
-              birthdayConfig.kicker
-            );
-        }
-
-        if (introTitle) {
-          introTitle.textContent =
-            personalizeBirthdayText(
-              birthdayConfig.introTitle
-            );
-        }
-
-        if (introText) {
-          introText.textContent =
-            personalizeBirthdayText(
-              birthdayConfig.introText
-            );
-        }
-
-        if (startButton) {
-          startButton.innerHTML =
-            personalizeBirthdayText(
-              birthdayConfig.startButton
-            ) +
-            ' <span aria-hidden="true">♥</span>';
-        }
-
-        if (
-          code &&
-          Array.isArray(
-            birthdayConfig.lines
-          ) &&
-          birthdayConfig.lines.length
-        ) {
-          code.innerHTML =
-            birthdayConfig.lines
-              .map(function (line) {
-                return (
-                  '<span class="say">' +
-                  personalizeBirthdayText(
-                    line
-                  ) +
-                  "</span><br>"
-                );
-              })
-              .join("\n");
-        }
-
-        if (theme.background) {
-          document.documentElement.style
-            .setProperty(
-              "--background",
-              theme.background
-            );
-        }
-
-        if (theme.text) {
-          document.documentElement.style
-            .setProperty(
-              "--text",
-              theme.text
-            );
-        }
-
-        if (theme.muted) {
-          document.documentElement.style
-            .setProperty(
-              "--muted",
-              theme.muted
-            );
-        }
-
-        if (theme.accent) {
-          document.documentElement.style
-            .setProperty(
-              "--accent",
-              theme.accent
-            );
-        }
-
-        if (theme.accentDark) {
-          document.documentElement.style
-            .setProperty(
-              "--accent-dark",
-              theme.accentDark
-            );
-        }
-
-        if (birthdayConfig.audio) {
-          audio.src =
-            birthdayConfig.audio;
-          audio.load();
-        }
-
-        var configuredVolume =
-          Number(
-            birthdayConfig.volume
-          );
-
-        if (!isNaN(configuredVolume)) {
-          audio.volume =
-            Math.min(
-              1,
-              Math.max(
-                0,
-                configuredVolume
-              )
-            );
-        }
-
-        audio.loop =
-          birthdayConfig.loop !== false;
-
-        musicLabel.textContent =
-          birthdayConfig.musicOn;
       }
 
-      applyBirthdayConfig();
+      function setTheme() {
+        var theme = config.theme || {};
+        var root = document.documentElement;
 
-      var started = false;
+        Object.keys(theme).forEach(function (key) {
+          var variableName = "--" + key.replace(
+            /[A-Z]/g,
+            function (letter) {
+              return "-" + letter.toLowerCase();
+            }
+          );
+
+          root.style.setProperty(variableName, theme[key]);
+        });
+      }
+
+      function applyConfig() {
+        document.title = config.pageTitle || "A Little Birthday Letter";
+
+        var description = document.querySelector('meta[name="description"]');
+
+        if (description && config.description) {
+          description.setAttribute("content", config.description);
+        }
+
+        setText("brandText", config.brandText);
+        setText("introKicker", config.introKicker);
+        setText("introOverline", config.introOverline);
+        setText("introTitle", config.introTitle);
+        setText("introText", config.introText);
+        setText("startButtonText", config.startButton);
+        setText("messageLabel", config.messageLabel);
+        setText("secretKicker", config.secretKicker);
+        setText("secretTitle", config.secretTitle);
+        setText("secretText", config.secretText);
+        setText("signatureText", config.signatureText);
+
+        var code = document.getElementById("code");
+
+        if (code && Array.isArray(config.lines)) {
+          code.innerHTML = config.lines
+            .map(function (line) {
+              return (
+                '<span class="say">' +
+                replaceName(line) +
+                "</span><br>"
+              );
+            })
+            .join("");
+        }
+
+        audio.src = config.audio || "aud.mp3";
+        audio.loop = config.loop !== false;
+
+        var volume = Number(config.volume);
+
+        audio.volume = isNaN(volume)
+          ? 0.72
+          : Math.min(1, Math.max(0, volume));
+
+        setTheme();
+      }
+
+      function updateMusicButton() {
+        var isPlaying = !audio.paused;
+
+        musicToggle.classList.toggle("is-muted", !isPlaying);
+        musicToggle.setAttribute(
+          "aria-label",
+          isPlaying ? "Matikan musik" : "Nyalakan musik"
+        );
+
+        musicText.textContent = isPlaying
+          ? (config.musicOn || "Musik aktif")
+          : (config.musicOff || "Musik mati");
+      }
+
+      function playMusic() {
+        musicToggle.hidden = false;
+
+        var promise = audio.play();
+
+        if (promise && typeof promise.catch === "function") {
+          promise.catch(function () {
+            updateMusicButton();
+          });
+        }
+
+        updateMusicButton();
+      }
+
+      function createFloatingHearts() {
+        if (floatingHearts.children.length) {
+          return;
+        }
+
+        for (var i = 0; i < 18; i += 1) {
+          var heart = document.createElement("span");
+
+          heart.textContent = i % 4 === 0 ? "✦" : "♥";
+          heart.style.left = (Math.random() * 94 + 3) + "%";
+          heart.style.animationDelay = (Math.random() * 8) + "s";
+          heart.style.animationDuration = (8 + Math.random() * 8) + "s";
+          heart.style.fontSize = (8 + Math.random() * 12) + "px";
+          heart.style.opacity = (0.18 + Math.random() * 0.34).toFixed(2);
+
+          floatingHearts.appendChild(heart);
+        }
+      }
+
+      function openSecret() {
+        secretModal.classList.add("is-open");
+        secretModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeSecretModal() {
+        secretModal.classList.remove("is-open");
+        secretModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      function fitCanvas() {
+        var isPortrait =
+          window.innerHeight > window.innerWidth &&
+          window.innerWidth < 760;
+
+        var availableWidth = window.innerWidth - 16;
+        var availableHeight = isPortrait
+          ? Math.max(250, window.innerHeight * 0.48)
+          : window.innerHeight - 40;
+
+        var scale = Math.min(
+          availableWidth / 1100,
+          availableHeight / 680,
+          1
+        );
+
+        document.documentElement.style.setProperty(
+          "--scene-scale",
+          scale.toFixed(4)
+        );
+      }
+
+      applyConfig();
+      createFloatingHearts();
+      fitCanvas();
+
+      window.addEventListener("resize", fitCanvas);
+      window.addEventListener("orientationchange", function () {
+        window.setTimeout(fitCanvas, 120);
+      });
+
+      musicToggle.addEventListener("click", function () {
+        if (audio.paused) {
+          playMusic();
+        } else {
+          audio.pause();
+          updateMusicButton();
+        }
+      });
+
+      audio.addEventListener("play", updateMusicButton);
+      audio.addEventListener("pause", updateMusicButton);
+
+      secretButton.addEventListener("click", openSecret);
+      closeSecret.addEventListener("click", closeSecretModal);
+      secretBackdrop.addEventListener("click", closeSecretModal);
+      replayButton.addEventListener("click", function () {
+        window.location.reload();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeSecretModal();
+        }
+      });
 
       if (!canvas[0].getContext) {
-        $("#error").show();
+        document.getElementById("error").hidden = false;
         return;
       }
 
@@ -352,200 +400,35 @@
       canvas.attr("width", width);
       canvas.attr("height", height);
 
-      function fitStage() {
-        var portrait =
-          window.innerHeight > window.innerWidth &&
-          window.innerWidth < 720;
-
-        var availableWidth =
-          window.innerWidth - 20;
-
-        var availableHeight = portrait
-          ? Math.max(250, window.innerHeight * 0.52)
-          : window.innerHeight - 20;
-
-        var scale = Math.min(
-          availableWidth / width,
-          availableHeight / height,
-          1
-        );
-
-        document
-          .getElementById("wrap")
-          .style
-          .setProperty(
-            "--scene-scale",
-            scale.toFixed(4)
-          );
-      }
-
-      function updateMusicButton() {
-        var playing = !audio.paused;
-
-        musicToggle.classList.toggle(
-          "is-muted",
-          !playing
-        );
-
-        musicToggle.setAttribute(
-          "aria-label",
-          playing ? "Pause music" : "Play music"
-        );
-
-        musicLabel.textContent =
-          playing ? birthdayConfig.musicOn : birthdayConfig.musicOff;
-      }
-
-      function playAudio() {
-        var promise = audio.play();
-
-        musicToggle.hidden = false;
-
-        if (
-          promise &&
-          typeof promise.then === "function"
-        ) {
-          promise
-            .then(updateMusicButton)
-            .catch(updateMusicButton);
-        } else {
-          updateMusicButton();
-        }
-      }
-
-      fitStage();
-
-      window.addEventListener(
-        "resize",
-        fitStage
-      );
-
-      window.addEventListener(
-        "orientationchange",
-        function () {
-          window.setTimeout(fitStage, 150);
-        }
-      );
-
-      musicToggle.addEventListener(
-        "click",
-        function () {
-          if (audio.paused) {
-            playAudio();
-          } else {
-            audio.pause();
-            updateMusicButton();
-          }
-        }
-      );
-
-      audio.addEventListener(
-        "play",
-        updateMusicButton
-      );
-
-      audio.addEventListener(
-        "pause",
-        updateMusicButton
-      );
-
       var opts = {
         seed: {
           x: width / 2 - 20,
-          color: "rgb(190, 26, 37)",
+          color: "rgb(166, 31, 43)",
           scale: 2
         },
-
         branch: [
-          [
-            535, 680,
-            570, 250,
-            500, 200,
-            30, 100,
-            [
-              [
-                540, 500,
-                455, 417,
-                340, 400,
-                13, 100,
-                [
-                  [
-                    450, 435,
-                    434, 430,
-                    394, 395,
-                    2, 40
-                  ]
-                ]
-              ],
-
-              [
-                550, 445,
-                600, 356,
-                680, 345,
-                12, 100,
-                [
-                  [
-                    578, 400,
-                    648, 409,
-                    661, 426,
-                    3, 80
-                  ]
-                ]
-              ],
-
-              [
-                539, 281,
-                537, 248,
-                534, 217,
-                3, 40
-              ],
-
-              [
-                546, 397,
-                413, 247,
-                328, 244,
-                9, 80,
-                [
-                  [
-                    427, 286,
-                    383, 253,
-                    371, 205,
-                    2, 40
-                  ],
-
-                  [
-                    498, 345,
-                    435, 315,
-                    395, 330,
-                    4, 60
-                  ]
-                ]
-              ],
-
-              [
-                546, 357,
-                608, 252,
-                678, 221,
-                6, 100,
-                [
-                  [
-                    590, 293,
-                    646, 277,
-                    648, 271,
-                    2, 80
-                  ]
-                ]
-              ]
-            ]
-          ]
+          [535, 680, 570, 250, 500, 200, 30, 100, [
+            [540, 500, 455, 417, 340, 400, 13, 100, [
+              [450, 435, 434, 430, 394, 395, 2, 40]
+            ]],
+            [550, 445, 600, 356, 680, 345, 12, 100, [
+              [578, 400, 648, 409, 661, 426, 3, 80]
+            ]],
+            [539, 281, 537, 248, 534, 217, 3, 40],
+            [546, 397, 413, 247, 328, 244, 9, 80, [
+              [427, 286, 383, 253, 371, 205, 2, 40],
+              [498, 345, 435, 315, 395, 330, 4, 60]
+            ]],
+            [546, 357, 608, 252, 678, 221, 6, 100, [
+              [590, 293, 646, 277, 648, 271, 2, 80]
+            ]]
+          ]]
         ],
-
         bloom: {
           num: 700,
           width: 1080,
           height: 650
         },
-
         footer: {
           width: 1200,
           height: 5,
@@ -553,16 +436,9 @@
         }
       };
 
-      var tree = new Tree(
-        canvas[0],
-        width,
-        height,
-        opts
-      );
-
+      var tree = new Tree(canvas[0], width, height, opts);
       var seed = tree.seed;
       var foot = tree.footer;
-      var hold = 1;
 
       seed.draw();
 
@@ -572,170 +448,108 @@
         }
 
         started = true;
-        hold = 0;
+        playMusic();
 
-        playAudio();
+        intro.classList.add("is-leaving");
+        document.body.classList.add("experience-started");
 
-        intro.classList.add("is-hidden");
-
-        window.setTimeout(
-          function () {
-            intro.hidden = true;
-          },
-          700
-        );
+        window.setTimeout(function () {
+          intro.hidden = true;
+          hold = 0;
+        }, 650);
       }
 
-      startButton.addEventListener(
-        "click",
-        beginExperience
-      );
+      startButton.addEventListener("click", beginExperience);
 
       var seedAnimate = eval(
-        Jscex.compile(
-          "async",
-          function () {
-            while (hold) {
-              $await(
-                Jscex.Async.sleep(10)
-              );
-            }
-
-            while (seed.canScale()) {
-              seed.scale(0.95);
-
-              $await(
-                Jscex.Async.sleep(10)
-              );
-            }
-
-            while (seed.canMove()) {
-              seed.move(0, 2);
-              foot.draw();
-
-              $await(
-                Jscex.Async.sleep(10)
-              );
-            }
+        Jscex.compile("async", function () {
+          while (hold) {
+            $await(Jscex.Async.sleep(10));
           }
-        )
+
+          while (seed.canScale()) {
+            seed.scale(0.95);
+            $await(Jscex.Async.sleep(10));
+          }
+
+          while (seed.canMove()) {
+            seed.move(0, 2);
+            foot.draw();
+            $await(Jscex.Async.sleep(10));
+          }
+        })
       );
 
       var growAnimate = eval(
-        Jscex.compile(
-          "async",
-          function () {
-            do {
-              tree.grow();
-
-              $await(
-                Jscex.Async.sleep(10)
-              );
-            } while (tree.canGrow());
-          }
-        )
+        Jscex.compile("async", function () {
+          do {
+            tree.grow();
+            $await(Jscex.Async.sleep(10));
+          } while (tree.canGrow());
+        })
       );
 
       var flowAnimate = eval(
-        Jscex.compile(
-          "async",
-          function () {
-            do {
-              tree.flower(2);
-
-              $await(
-                Jscex.Async.sleep(10)
-              );
-            } while (tree.canFlower());
-          }
-        )
+        Jscex.compile("async", function () {
+          do {
+            tree.flower(2);
+            $await(Jscex.Async.sleep(10));
+          } while (tree.canFlower());
+        })
       );
 
       var moveAnimate = eval(
-        Jscex.compile(
-          "async",
-          function () {
-            tree.snapshot(
-              "p1",
-              240,
-              0,
-              610,
-              680
-            );
+        Jscex.compile("async", function () {
+          tree.snapshot("p1", 240, 0, 610, 680);
 
-            while (
-              tree.move("p1", 500, 0)
-            ) {
-              foot.draw();
-
-              $await(
-                Jscex.Async.sleep(10)
-              );
-            }
-
+          while (tree.move("p1", 500, 0)) {
             foot.draw();
-
-            tree.snapshot(
-              "p2",
-              500,
-              0,
-              610,
-              680
-            );
-
-            canvas
-              .parent()
-              .css(
-                "background",
-                "url(" +
-                tree.toDataURL("image/png") +
-                ")"
-              );
-
-            canvas.css(
-              "background",
-              "rgba(255, 249, 242, 0.95)"
-            );
-
-            $await(
-              Jscex.Async.sleep(300)
-            );
-
-            canvas.css(
-              "background",
-              "none"
-            );
+            $await(Jscex.Async.sleep(10));
           }
-        )
+
+          foot.draw();
+          tree.snapshot("p2", 500, 0, 610, 680);
+
+          canvas.parent().css(
+            "background",
+            "url(" +
+              tree.toDataURL("image/png") +
+              ") center / 1100px 680px no-repeat"
+          );
+
+          canvas.css("background", "rgba(255, 250, 242, 0.96)");
+          $await(Jscex.Async.sleep(300));
+          canvas.css("background", "none");
+        })
       );
 
       var textAnimate = eval(
-        Jscex.compile(
-          "async",
-          function () {
-            $("#text").addClass(
-              "is-visible"
-            );
+        Jscex.compile("async", function () {
+          messageCard.classList.add("is-visible");
 
-            $("#code")
-              .show()
-              .typewriter();
-          }
-        )
+          $("#code")
+            .show()
+            .typewriter({
+              speed: 52,
+              onComplete: function () {
+                secretButton.hidden = false;
+
+                window.setTimeout(function () {
+                  secretButton.classList.add("is-visible");
+                }, 80);
+              }
+            });
+        })
       );
 
       var runAsync = eval(
-        Jscex.compile(
-          "async",
-          function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
-
-            textAnimate().start();
-          }
-        )
+        Jscex.compile("async", function () {
+          $await(seedAnimate());
+          $await(growAnimate());
+          $await(flowAnimate());
+          $await(moveAnimate());
+          textAnimate().start();
+        })
       );
 
       runAsync().start();
@@ -743,3 +557,4 @@
   </script>
 </body>
 </html>
+

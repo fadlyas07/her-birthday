@@ -1,21 +1,32 @@
 window.BIRTHDAY_CONFIG = {
-  pageTitle: "A Birthday Surprise",
+  pageTitle: "A Little Birthday Letter",
 
   description:
-    "Sebuah kejutan ulang tahun kecil yang dibuat dengan penuh perhatian.",
+    "Sebuah kejutan ulang tahun kecil yang dibuat dengan hati.",
 
-  recipientName: "Kamu",
+  recipientName:
+    "Kamu",
 
-  kicker: "A little surprise",
+  brandText:
+    "for someone special",
+
+  introKicker:
+    "a little birthday letter",
+
+  introOverline:
+    "Untuk seseorang yang istimewa",
 
   introTitle:
-    "Ada sesuatu yang spesial untuk {name}",
+    "Ada surat kecil yang memilihmu hari ini.",
 
   introText:
-    "Nyalakan volume perangkatmu, lalu buka kejutannya.",
+    "Buka pelan-pelan. Ada sesuatu yang dibuat khusus untuk membuatmu tersenyum.",
 
   startButton:
     "Buka kejutannya",
+
+  messageLabel:
+    "a little note for you",
 
   musicOn:
     "Musik aktif",
@@ -23,27 +34,49 @@ window.BIRTHDAY_CONFIG = {
   musicOff:
     "Musik mati",
 
-  audio: "aud.mp3",
-  volume: 0.75,
-  loop: true,
+  audio:
+    "aud.mp3",
 
-  theme: {
-    background: "#120913",
-    text: "#fff8fb",
-    muted: "#d7c5d1",
-    accent: "#ff5f93",
-    accentDark: "#d92c68"
-  },
+  volume:
+    0.72,
+
+  loop:
+    true,
 
   lines: [
     "Hai, {name}.",
-    "Selamat ulang tahun! 🎂",
-    "Semoga selalu diberikan kesehatan,",
-    "kebahagiaan, dan segala hal yang baik.",
-    "Semoga hari-harimu dipenuhi senyuman,",
-    "orang-orang yang tulus,",
-    "dan banyak kenangan indah.",
-    "Tetap menjadi pribadi yang hebat.",
-    "Selamat menikmati hari spesialmu. ❤️"
-  ]
+    "Di antara begitu banyak hari,",
+    "hari ini pantas dirayakan lebih lama.",
+    "Selamat ulang tahun. ♥",
+    "Semoga langkahmu selalu ditemani",
+    "hal-hal baik dan orang-orang tulus.",
+    "Semoga kamu tetap menjadi alasan",
+    "bagi banyak senyum di dunia ini."
+  ],
+
+  secretKicker:
+    "one more thing",
+
+  secretTitle:
+    "Dunia terasa sedikit lebih hangat karena ada kamu.",
+
+  secretText:
+    "Semoga di tahun yang baru ini kamu lebih sering bertemu alasan untuk tersenyum, lebih berani memilih hal yang membuatmu bahagia, dan selalu ingat bahwa kehadiranmu berarti.",
+
+  signatureText:
+    "dibuat dengan hati",
+
+  theme: {
+    cream: "#fff8ed",
+    creamDeep: "#f3e4d4",
+    paper: "#fffdf8",
+    paperWarm: "#fff4e5",
+    red: "#a61f2b",
+    redBright: "#c63a46",
+    redSoft: "#e8b4b7",
+    ink: "#3c2825",
+    muted: "#7f6762",
+    gold: "#c49a63"
+  }
 };
+
