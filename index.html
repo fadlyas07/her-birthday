@@ -27,6 +27,7 @@
   <script src="file/jscex-async-powerpack.min.js"></script>
   <script src="file/function.js"></script>
   <script src="file/love.js"></script>
+  <script src="file/config.js"></script>
 </head>
 
 <body>
@@ -145,6 +146,199 @@
 
       var audio = document.getElementById("myAudio");
 
+      var birthdayConfig = Object.assign(
+        {
+          pageTitle: "A Birthday Surprise",
+          description: "",
+          recipientName: "You",
+          kicker: "A little surprise",
+          introTitle:
+            "Something special is waiting for {name}",
+          introText:
+            "Turn up your volume, then tap the button below.",
+          startButton:
+            "Open the surprise",
+          musicOn:
+            "Music on",
+          musicOff:
+            "Music off",
+          audio: "aud.mp3",
+          volume: 0.75,
+          loop: true,
+          theme: {},
+          lines: []
+        },
+        window.BIRTHDAY_CONFIG || {}
+      );
+
+      function personalizeBirthdayText(value) {
+        return String(value || "").replace(
+          /\{name\}/g,
+          birthdayConfig.recipientName
+        );
+      }
+
+      function applyBirthdayConfig() {
+        var description =
+          document.querySelector(
+            'meta[name="description"]'
+          );
+
+        var kicker =
+          document.querySelector(
+            ".intro-kicker"
+          );
+
+        var introTitle =
+          document.querySelector(
+            ".intro h1"
+          );
+
+        var introText =
+          document.querySelector(
+            ".intro p"
+          );
+
+        var code =
+          document.getElementById("code");
+
+        var theme =
+          birthdayConfig.theme || {};
+
+        document.title =
+          birthdayConfig.pageTitle;
+
+        if (
+          description &&
+          birthdayConfig.description
+        ) {
+          description.setAttribute(
+            "content",
+            birthdayConfig.description
+          );
+        }
+
+        if (kicker) {
+          kicker.textContent =
+            personalizeBirthdayText(
+              birthdayConfig.kicker
+            );
+        }
+
+        if (introTitle) {
+          introTitle.textContent =
+            personalizeBirthdayText(
+              birthdayConfig.introTitle
+            );
+        }
+
+        if (introText) {
+          introText.textContent =
+            personalizeBirthdayText(
+              birthdayConfig.introText
+            );
+        }
+
+        if (startButton) {
+          startButton.innerHTML =
+            personalizeBirthdayText(
+              birthdayConfig.startButton
+            ) +
+            ' <span aria-hidden="true">♥</span>';
+        }
+
+        if (
+          code &&
+          Array.isArray(
+            birthdayConfig.lines
+          ) &&
+          birthdayConfig.lines.length
+        ) {
+          code.innerHTML =
+            birthdayConfig.lines
+              .map(function (line) {
+                return (
+                  '<span class="say">' +
+                  personalizeBirthdayText(
+                    line
+                  ) +
+                  "</span><br>"
+                );
+              })
+              .join("\n");
+        }
+
+        if (theme.background) {
+          document.documentElement.style
+            .setProperty(
+              "--background",
+              theme.background
+            );
+        }
+
+        if (theme.text) {
+          document.documentElement.style
+            .setProperty(
+              "--text",
+              theme.text
+            );
+        }
+
+        if (theme.muted) {
+          document.documentElement.style
+            .setProperty(
+              "--muted",
+              theme.muted
+            );
+        }
+
+        if (theme.accent) {
+          document.documentElement.style
+            .setProperty(
+              "--accent",
+              theme.accent
+            );
+        }
+
+        if (theme.accentDark) {
+          document.documentElement.style
+            .setProperty(
+              "--accent-dark",
+              theme.accentDark
+            );
+        }
+
+        if (birthdayConfig.audio) {
+          audio.src =
+            birthdayConfig.audio;
+          audio.load();
+        }
+
+        var configuredVolume =
+          Number(
+            birthdayConfig.volume
+          );
+
+        if (!isNaN(configuredVolume)) {
+          audio.volume =
+            Math.min(
+              1,
+              Math.max(
+                0,
+                configuredVolume
+              )
+            );
+        }
+
+        audio.loop =
+          birthdayConfig.loop !== false;
+
+        musicLabel.textContent =
+          birthdayConfig.musicOn;
+      }
+
+      applyBirthdayConfig();
+
       var started = false;
 
       if (!canvas[0].getContext) {
@@ -199,7 +393,7 @@
         );
 
         musicLabel.textContent =
-          playing ? "Music on" : "Music off";
+          playing ? birthdayConfig.musicOn : birthdayConfig.musicOff;
       }
 
       function playAudio() {
